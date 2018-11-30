@@ -52,7 +52,7 @@ export default {
             // 将token存储到localStorage中
             console.log(res)
             if (res.data.meta.status === 200) {
-              // localStorage.setItem('token', res.data.data.token)
+              localStorage.setItem('token', res.data.data.token)
               // 通过编程式实现路由跳转
               this.$router.push('/home')
               this.$message({

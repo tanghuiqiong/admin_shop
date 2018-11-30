@@ -12,4 +12,20 @@ const router = new Router({
     { path: '/home', component: Home }
   ]
 })
+router.beforeEach((to, from, next) => {
+  // 如果访问的登录页，直接展示登录页
+  if (to.path === '/login') {
+    next()
+    return
+  }
+  // 判断有没有登录
+  const token = localStorage.getItem('token')
+  if (token) {
+    // 登录，直接展示访问当前的页面
+    next()
+  } else {
+    // 没有登录，跳回登录页登录
+    next('/login')
+  }
+})
 export default router
