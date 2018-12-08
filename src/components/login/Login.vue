@@ -1,17 +1,21 @@
 <template>
   <div class="login">
-    <el-form :model="loginForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="用户名" prop="username">
-        <el-input v-model="loginForm.username"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input type="password" v-model="loginForm.password"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
-      </el-form-item>
-    </el-form>
+    <el-row class="login" type="flex" justify="center" align="middle">
+      <el-col :xs="14" :sm="12" :md="10" :lg="8" :xl="6">
+        <el-form :model="loginForm" :rules="rules" ref="ruleForm" class="login-ruleForm">
+          <el-form-item label="用户名" prop="username">
+            <el-input v-model="loginForm.username"></el-input>
+          </el-form-item>
+          <el-form-item label="密码" prop="password">
+            <el-input type="password" v-model="loginForm.password"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+            <el-button @click="resetForm('ruleForm')">重置</el-button>
+          </el-form-item>
+        </el-form>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -77,4 +81,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="less">
+.login {
+  height: 100%;
+  background-color: #2d434c;
+  &-ruleForm {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+  }
+}
+</style>
